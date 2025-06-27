@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useLoginUserMutation } from '../src/features/healthLogs/users/usersSlice';
+import { useLoginUserMutation } from '../src/features/users/usersSlice';
 
-export default function LoginForm({ onLogin }) {
+export default function LoginForm({ onLogin, onToggle }) {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [loginUser, { isLoading, error }] = useLoginUserMutation();
 
@@ -56,6 +56,22 @@ export default function LoginForm({ onLogin }) {
       <button type="submit" disabled={isLoading}>
         {isLoading ? 'Logging in...' : 'Login'}
       </button>
+      <p>
+        Don’t have an account?{' '}
+        <button
+          type="button"
+          onClick={onToggle}
+          style={{
+            color: 'blue',
+            textDecoration: 'underline',
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+          }}
+        >
+          Register here
+        </button>
+      </p>
 
       {error && (
         <p style={{ color: 'red' }}>

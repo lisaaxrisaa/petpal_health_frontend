@@ -1,24 +1,51 @@
 import { useState, useEffect } from 'react';
+import { jwtDecode } from 'jwt-decode';
 import LoginForm from '../components/LoginForm';
 import Home from '../pages/Home';
+import RegisterForm from '../components/RegisterForm';
 
 function App() {
   const [token, setToken] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [hasAccount, setHasAccount] = useState(true);
   useEffect(() => {
-    const storedToken = localStorage.getItem('token');
-    setToken(storedToken);
-    setLoading(false);
+    const stored = localStorage.getItem('token');
+    if (stored) {
+      try {
+        const { exp } = jwtDecode(stored);
+        if (exp * 1000 > Date.now()) setToken(stored);
+        else localStorage.removeItem('token');
+      } catch {
+        localStorage.removeItem('token');
+      }
+    }
   }, []);
 
-  const handleLogin = () => {
-    const storedToken = localStorage.getItem('token');
-    setToken(storedToken);
+  const handleAuthSuccess = () => {
+    setToken(localStorage.getItem('token'));
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (token)
+    return (
+      <Home
+        onLogout={() => {
+          localStorage.clear();
+          setToken(null);
+        }}
+      />
+    );
 
-  return token ? <Home /> : <LoginForm onLogin={handleLogin} />;
+  return hasAccount ? (
+    <>
+      <LoginForm
+        onLogin={handleAuthSuccess}
+        onToggle={() => setHasAccount(false)}
+      />
+    </>
+  ) : (
+    <>
+      <RegisterForm onRegister={() => setHasAccount(true)} />
+    </>
+  );
 }
 
 export default App;
