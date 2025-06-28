@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { jwtDecode } from 'jwt-decode';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
 import Home from '../pages/Home';
 import RegisterForm from '../components/RegisterForm';
+import PetDetailsPage from '../components/PetDetailsPage';
 
 function App() {
   const [token, setToken] = useState(null);
   const [hasAccount, setHasAccount] = useState(true);
+
   useEffect(() => {
     const stored = localStorage.getItem('token');
     if (stored) {
@@ -24,27 +27,34 @@ function App() {
     setToken(localStorage.getItem('token'));
   };
 
-  if (token)
+  if (token) {
     return (
-      <Home
-        onLogout={() => {
-          localStorage.clear();
-          setToken(null);
-        }}
-      />
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home
+                onLogout={() => {
+                  localStorage.clear();
+                  setToken(null);
+                }}
+              />
+            }
+          />
+          <Route path="/pets/:petId" element={<PetDetailsPage />} />
+        </Routes>
+      </Router>
     );
+  }
 
   return hasAccount ? (
-    <>
-      <LoginForm
-        onLogin={handleAuthSuccess}
-        onToggle={() => setHasAccount(false)}
-      />
-    </>
+    <LoginForm
+      onLogin={handleAuthSuccess}
+      onToggle={() => setHasAccount(false)}
+    />
   ) : (
-    <>
-      <RegisterForm onRegister={() => setHasAccount(true)} />
-    </>
+    <RegisterForm onRegister={() => setHasAccount(true)} />
   );
 }
 
