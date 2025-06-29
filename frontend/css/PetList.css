@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
+
+.petlist-container {
+  width: 100%;
+  max-width: 600px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.petlist-title {
+  color: #2d3748;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.petlist-loading,
+.petlist-error {
+  color: #2d3748;
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 2rem 0;
+  font-weight: 500;
+}
+
+.petlist-error {
+  color: #e53e3e;
+}
+
+.petlist-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.petlist-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.petlist-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.petlist-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.petlist-pet-name {
+  color: #2d3748;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.petlist-pet-species {
+  color: #4a5568;
+  font-size: 0.9rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.petlist-link {
+  text-decoration: none;
+}
+
+.petlist-details-btn {
+  background-color: #ff7d50;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Quicksand', sans-serif;
+}
+
+.petlist-details-btn:hover {
+  background-color: #ff6b3a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 125, 80, 0.3);
+}
+
+.petlist-details-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(255, 125, 80, 0.2);
+}
+
+@media (max-width: 768px) {
+  .petlist-card {
+    padding: 1rem;
+  }
+
+  .petlist-pet-name {
+    font-size: 1rem;
+  }
+
+  .petlist-details-btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .petlist-card {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .petlist-info {
+    width: 100%;
+  }
+
+  .petlist-link {
+    width: 100%;
+  }
+
+  .petlist-details-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem;
+  }
+}

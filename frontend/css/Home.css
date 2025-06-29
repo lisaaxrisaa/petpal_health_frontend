@@ -1,0 +1,152 @@
+/* Home.css - COMPLETE FINAL VERSION */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
+
+/* Main Wrapper - Perfect Centering */
+.home-page-root {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background-color: #f8fafc;
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Content Container */
+.home-content-container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.home-main-title {
+  text-align: center;
+  color: #ff7d50;
+  margin: 0 0 2rem 0;
+  font-family: 'Pacifico', cursive;
+  font-size: 2.7rem;
+  font-weight: 400;
+}
+
+.home-nav-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.home-nav-btn {
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.home-nav-btn-primary {
+  background-color: #ff7d50;
+  color: white;
+}
+
+.home-nav-btn-primary:hover {
+  background-color: #ff6b3a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 125, 80, 0.3);
+}
+
+.home-nav-btn-logout {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.home-nav-btn-logout:hover {
+  background-color: #3a80d2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+}
+
+.home-pets-list-container {
+  width: 100%;
+  max-width: 600px;
+  color: #2d3748;
+}
+
+.home-pet-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  background: white;
+  border-radius: 12px;
+  color: #2d3748;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.home-pet-name {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 1.1rem;
+}
+
+.home-view-details-btn {
+  background: none;
+  border: 2px solid #ff7d50;
+  color: #ff7d50;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.home-view-details-btn:hover {
+  background: #ff7d50;
+  color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .home-page-root {
+    padding: 1.5rem;
+  }
+
+  .home-main-title {
+    font-size: 2.3rem;
+  }
+
+  .home-nav-container {
+    flex-wrap: wrap;
+  }
+
+  .home-nav-btn {
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page-root {
+    padding: 1rem;
+  }
+
+  .home-main-title {
+    font-size: 2rem;
+  }
+
+  .home-pet-card {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .home-view-details-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

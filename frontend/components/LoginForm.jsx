@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLoginUserMutation } from '../src/features/users/usersSlice';
+import '../css/LoginForm.css';
 
 export default function LoginForm({ onLogin, onToggle }) {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -19,65 +20,70 @@ export default function LoginForm({ onLogin, onToggle }) {
       const response = await loginUser(formData).unwrap();
       localStorage.setItem('token', response.token);
       localStorage.setItem('user', JSON.stringify(response.user));
-      if (onLogin) onLogin(); // Callback to App.jsx
+      if (onLogin) onLogin();
     } catch (err) {
       console.error('Login failed:', err);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
+    <>
+      <div className="login-form-root">
+        <div className="login-form-card">
+          <form onSubmit={handleSubmit}>
+            <h2 className="login-form-title">Login</h2>
 
-      <label>
-        Email:
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <br />
+            <label className="login-form-group">
+              Email:
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="login-form-input"
+              />
+            </label>
 
-      <label>
-        Password:
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-      </label>
-      <br />
+            <label className="login-form-group">
+              Password:
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+                className="login-form-input"
+              />
+            </label>
 
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? 'Logging in...' : 'Login'}
-      </button>
-      <p>
-        Don’t have an account?{' '}
-        <button
-          type="button"
-          onClick={onToggle}
-          style={{
-            color: 'blue',
-            textDecoration: 'underline',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-          }}
-        >
-          Register here
-        </button>
-      </p>
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="login-form-button"
+            >
+              {isLoading ? 'Logging in...' : 'Login'}
+            </button>
 
-      {error && (
-        <p style={{ color: 'red' }}>
-          Login failed. Please check your email and password.
-        </p>
-      )}
-    </form>
+            <p className="login-form-footer">
+              Don't have an account?{' '}
+              <button
+                type="button"
+                onClick={onToggle}
+                className="login-form-link"
+              >
+                Register here
+              </button>
+            </p>
+
+            {error && (
+              <p className="login-form-error">
+                Login failed. Please check your email and password.
+              </p>
+            )}
+          </form>
+        </div>
+      </div>
+    </>
   );
 }

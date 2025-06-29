@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useGetUserPetsQuery } from '../src/features/pets/petsSlice';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import HealthLogForm from './HealthLogForm';
 import HealthLogList from './HealthLogList';
 import PetProfileCard from './PetProfileCard';
@@ -25,8 +26,9 @@ export default function PetDetailsPage() {
         <HealthLogForm defaultPetId={pet.id} defaultPetName={pet.name} />
       )}
 
-      <h3>Health Logs</h3>
-      <HealthLogList petId={pet.id} />
+      <Link to={`/pets/${pet.id}/logs`}>
+        <button>View Health Logs</button>
+      </Link>
     </div>
   );
 }
