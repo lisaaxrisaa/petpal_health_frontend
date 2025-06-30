@@ -1,7 +1,5 @@
-/* Home.css - COMPLETE FINAL VERSION */
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
 
-/* Main Wrapper - Perfect Centering */
 .home-page-root {
   min-height: 100vh;
   display: grid;
@@ -11,7 +9,6 @@
   font-family: 'Quicksand', sans-serif;
 }
 
-/* Content Container */
 .home-content-container {
   width: 100%;
   max-width: 800px;
@@ -20,7 +17,6 @@
   align-items: center;
 }
 
-/* Header */
 .home-main-title {
   text-align: center;
   color: #ff7d50;

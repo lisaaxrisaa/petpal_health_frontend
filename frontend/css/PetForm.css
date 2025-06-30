@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
+
+.pet-form-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.pet-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  color: #2d3748;
+}
+
+.pet-form-title {
+  text-align: center;
+  color: #ff7d50;
+  margin: 0 0 2rem 0;
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.pet-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.pet-form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.pet-form-field-full {
+  grid-column: 1 / -1;
+}
+
+.pet-form-label {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pet-form-input,
+.pet-form-textarea {
+  padding: 0.8rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Quicksand', sans-serif;
+  color: #2d3748;
+  background-color: #fafafa;
+  transition: all 0.2s ease;
+}
+
+.pet-form-input:focus,
+.pet-form-textarea:focus {
+  outline: none;
+  border-color: #ff7d50;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(255, 125, 80, 0.1);
+}
+
+.pet-form-input::placeholder,
+.pet-form-textarea::placeholder {
+  color: #a0aec0;
+}
+
+.pet-form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.pet-form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.pet-form-submit-btn {
+  padding: 0.9rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #ff7d50;
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.pet-form-submit-btn:hover:not(:disabled) {
+  background-color: #ff6b3a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 125, 80, 0.3);
+}
+
+.pet-form-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pet-form-submit-btn-loading {
+  position: relative;
+}
+
+.pet-form-error {
+  margin-top: 1rem;
+  padding: 0.8rem 1rem;
+  background-color: #fed7d7;
+  color: #c53030;
+  border-radius: 8px;
+  font-weight: 500;
+  text-align: center;
+  border: 1px solid #feb2b2;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .pet-form {
+    padding: 1.5rem;
+  }
+
+  .pet-form-title {
+    font-size: 1.8rem;
+  }
+
+  .pet-form-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pet-form {
+    padding: 1rem;
+  }
+
+  .pet-form-title {
+    font-size: 1.6rem;
+  }
+
+  .pet-form-submit-btn {
+    width: 100%;
+    padding: 1rem;
+  }
+}

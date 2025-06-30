@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import HealthLogForm from './HealthLogForm';
 import HealthLogList from './HealthLogList';
 import PetProfileCard from './PetProfileCard';
+import '../css/PetDetailsPage.css';
 
 export default function PetDetailsPage() {
   const { petId } = useParams();
@@ -15,20 +16,35 @@ export default function PetDetailsPage() {
   if (!pet) return <p>Pet not found</p>;
 
   return (
-    <div>
-      <PetProfileCard pet={pet} />
+    <>
+      <div className="petdetails-page-root">
+        <div className="petdetails-content-container">
+          <div className="petdetails-profile-section">
+            <PetProfileCard pet={pet} />
+          </div>
 
-      <button onClick={() => setShowForm(!showForm)}>
-        {showForm ? 'Hide' : 'Add'} Health Log
-      </button>
+          <div className="petdetails-actions-section">
+            <button
+              onClick={() => setShowForm(!showForm)}
+              className="petdetails-toggle-btn"
+            >
+              {showForm ? 'Hide' : 'Add'} Health Log
+            </button>
 
-      {showForm && (
-        <HealthLogForm defaultPetId={pet.id} defaultPetName={pet.name} />
-      )}
+            <Link to={`/pets/${pet.id}/logs`} className="petdetails-link">
+              <button className="petdetails-view-logs-btn">
+                View Health Logs
+              </button>
+            </Link>
+          </div>
 
-      <Link to={`/pets/${pet.id}/logs`}>
-        <button>View Health Logs</button>
-      </Link>
-    </div>
+          {showForm && (
+            <div className="petdetails-form-section">
+              <HealthLogForm defaultPetId={pet.id} defaultPetName={pet.name} />
+            </div>
+          )}
+        </div>
+      </div>
+    </>
   );
 }

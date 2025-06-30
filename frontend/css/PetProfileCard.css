@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
+
+.pet-profile-card {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  font-family: 'Quicksand', sans-serif;
+  color: #2d3748;
+}
+
+.pet-profile-header {
+  background: linear-gradient(135deg, #ff7d50 0%, #ff6b3a 100%);
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.pet-profile-name {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: white;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pet-profile-species-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.pet-profile-details {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pet-profile-detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid #ff7d50;
+  transition: all 0.2s ease;
+}
+
+.pet-profile-detail-item:hover {
+  background: #f1f5f9;
+  transform: translateX(2px);
+}
+
+.pet-profile-detail-label {
+  font-weight: 600;
+  color: #4a5568;
+  font-size: 0.95rem;
+  min-width: 80px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pet-profile-detail-value {
+  font-weight: 500;
+  color: #2d3748;
+  font-size: 1rem;
+  text-align: right;
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.pet-profile-notes {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pet-profile-notes .pet-profile-detail-label {
+  margin-bottom: 0.8rem;
+}
+
+.pet-profile-notes .pet-profile-detail-value {
+  text-align: left;
+  margin-left: 0;
+}
+
+.pet-profile-notes-text {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  width: 100%;
+  line-height: 1.6;
+  font-style: italic;
+  color: #4a5568;
+}
+
+/* Empty state styling */
+.pet-profile-card:empty {
+  display: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .pet-profile-header {
+    padding: 1.5rem;
+  }
+
+  .pet-profile-name {
+    font-size: 1.8rem;
+  }
+
+  .pet-profile-details {
+    padding: 1.5rem;
+    gap: 1.2rem;
+  }
+
+  .pet-profile-detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .pet-profile-detail-value {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .pet-profile-detail-label {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .pet-profile-header {
+    padding: 1.2rem;
+  }
+
+  .pet-profile-name {
+    font-size: 1.6rem;
+  }
+
+  .pet-profile-species-badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .pet-profile-details {
+    padding: 1rem;
+  }
+}

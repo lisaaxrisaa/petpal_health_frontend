@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
+
+.petdetails-page-root {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background-color: white;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.petdetails-content-container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.petdetails-profile-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.petdetails-actions-section {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 500px;
+}
+
+.petdetails-toggle-btn,
+.petdetails-view-logs-btn {
+  background-color: #ff7d50;
+  color: white;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Quicksand', sans-serif;
+}
+
+.petdetails-toggle-btn:hover,
+.petdetails-view-logs-btn:hover {
+  background-color: #ff6b3a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 125, 80, 0.3);
+}
+
+.petdetails-toggle-btn:active,
+.petdetails-view-logs-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(255, 125, 80, 0.2);
+}
+
+.petdetails-link {
+  text-decoration: none;
+}
+
+.petdetails-form-section {
+  width: 100%;
+  max-width: 600px;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.petdetails-not-found {
+  color: #e53e3e;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 2rem 0;
+  padding: 2rem;
+  background: #fed7d7;
+  border-radius: 12px;
+  border: 1px solid #feb2b2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .petdetails-page-root {
+    padding: 1.5rem;
+  }
+
+  .petdetails-content-container {
+    gap: 1.5rem;
+  }
+
+  .petdetails-actions-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .petdetails-toggle-btn,
+  .petdetails-view-logs-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .petdetails-form-section {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .petdetails-page-root {
+    padding: 1rem;
+  }
+
+  .petdetails-content-container {
+    gap: 1rem;
+  }
+
+  .petdetails-toggle-btn,
+  .petdetails-view-logs-btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+
+  .petdetails-form-section {
+    padding: 1rem;
+  }
+}
