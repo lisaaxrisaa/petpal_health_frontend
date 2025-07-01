@@ -59,7 +59,6 @@ export default function Home({ onLogout }) {
 
           {activeTab === 'logs' && selectedPet && (
             <>
-              <h2>Health Logs for {selectedPet.name}</h2>
               <button onClick={handleBackToPets}>← Back to Pets</button>
               <HealthLogForm pet={selectedPet} />
               <HealthLogList petId={selectedPet.id} />

@@ -21,6 +21,9 @@ const healthLogsSlice = api.injectEndpoints({
       }),
       invalidatesTags: ['HealthLogs'],
     }),
+    getSingleHealthLog: builder.query({
+      query: (logId) => `/healthlogs/${logId}`,
+    }),
   }),
   overrideExisting: false,
 });
@@ -29,6 +32,7 @@ export const {
   useGetHealthLogsQuery,
   useCreateHealthLogMutation,
   useDeleteHealthLogMutation,
+  useGetSingleHealthLogQuery,
 } = healthLogsSlice;
 
 export default healthLogsSlice;

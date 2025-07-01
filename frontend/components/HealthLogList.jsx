@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useGetHealthLogsQuery } from '../src/features/healthLogs/healthLogsSlice';
+import '../css/HealthLogList.css';
 
 export default function HealthLogList({ petId }) {
   const navigate = useNavigate();
@@ -9,20 +10,41 @@ export default function HealthLogList({ petId }) {
   if (error) return <p>Error loading logs: {error.message}</p>;
 
   return (
-    <div>
-      <button onClick={() => navigate(-1)}>← Back to Pet</button>
+    <>
+      <div className="health-log-page-root">
+        <div className="health-log-content-container">
+          <button className="health-log-back-btn" onClick={() => navigate(-1)}>
+            ← Back to Pet
+          </button>
 
-      <h2>Health Logs</h2>
-      <ul>
-        {logs.map((log) => (
-          <li key={log.id}>
-            <strong>{log.petName}</strong> –{' '}
-            {new Date(log.date).toLocaleDateString()}
-            <br />
-            {log.notes}
-          </li>
-        ))}
-      </ul>
-    </div>
+          <h2 className="health-log-title">Health Logs</h2>
+
+          {logs.length === 0 ? (
+            <div className="health-log-empty">
+              No health logs found for this pet.
+            </div>
+          ) : (
+            <div className="health-log-list">
+              {logs.map((log) => (
+                <div
+                  key={log.id}
+                  className="health-log-card"
+                  onClick={() => navigate(`/logs/${log.id}`)}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <div className="health-log-header">
+                    <span className="health-log-pet-name">{log.petName}</span>
+                    <span className="health-log-date">
+                      {new Date(log.date).toLocaleDateString()}
+                    </span>
+                  </div>
+                  <div className="health-log-notes">{log.notes}</div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </>
   );
 }

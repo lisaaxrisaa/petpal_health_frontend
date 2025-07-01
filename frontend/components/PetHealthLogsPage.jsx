@@ -12,7 +12,6 @@ export default function PetHealthLogsPage() {
 
   return (
     <div>
-      <h2>Health Logs for {pet.name}</h2>
       <HealthLogList petId={pet.id} />
     </div>
   );
