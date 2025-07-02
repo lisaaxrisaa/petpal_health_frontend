@@ -22,7 +22,22 @@ const healthLogsSlice = api.injectEndpoints({
       invalidatesTags: ['HealthLogs'],
     }),
     getSingleHealthLog: builder.query({
-      query: (logId) => `/healthlogs/${logId}`,
+      query: (logId) => `/healthlogs/log/${logId}`,
+      providesTags: (result, error, logId) => [
+        { type: 'SingleHealthLog', id: logId },
+      ],
+    }),
+
+    updateHealthLog: builder.mutation({
+      query: ({ id, ...patch }) => ({
+        url: `/healthlogs/${id}`,
+        method: 'PATCH',
+        body: patch,
+      }),
+      invalidatesTags: (result, error, { id }) => [
+        'HealthLogs',
+        { type: 'SingleHealthLog', id },
+      ],
     }),
   }),
   overrideExisting: false,
@@ -33,6 +48,7 @@ export const {
   useCreateHealthLogMutation,
   useDeleteHealthLogMutation,
   useGetSingleHealthLogQuery,
+  useUpdateHealthLogMutation,
 } = healthLogsSlice;
 
 export default healthLogsSlice;

@@ -1,5 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
 
+/* Add the missing page container background */
+.health-log-form-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f8fafc;
+  font-family: 'Quicksand', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+/* Reset any potential header styles */
+.health-log-form-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f8fafc;
+  z-index: -1;
+}
+
 .health-log-form-container {
   width: 100%;
   max-width: 700px;
@@ -231,6 +257,10 @@
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+  .health-log-form-page {
+    padding: 1.5rem;
+  }
+
   .health-log-form {
     padding: 1.5rem;
   }
@@ -253,6 +283,10 @@
 }
 
 @media (max-width: 480px) {
+  .health-log-form-page {
+    padding: 1rem;
+  }
+
   .health-log-form {
     padding: 1rem;
   }

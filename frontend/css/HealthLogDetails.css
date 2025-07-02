@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
+
+.health-log-details-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f8fafc;
+  font-family: 'Quicksand', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+/* Reset any potential header styles */
+.health-log-details-root::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f8fafc;
+  z-index: -1;
+}
+
+.health-log-details-root .health-log-back-btn {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #4a90e2;
+  background: none;
+  color: #4a90e2;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  align-self: flex-start;
+}
+
+.health-log-details-root .health-log-back-btn:hover {
+  background: #4a90e2;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+}
+
+.health-log-details-title {
+  text-align: center;
+  color: #ff7d50;
+  margin: 0 0 2rem 0;
+  font-family: 'Pacifico', cursive;
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+
+.health-log-details-card {
+  background: white;
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.health-log-details-card p {
+  margin: 0 0 2rem 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.health-log-details-card p:last-child {
+  margin-bottom: 0;
+}
+
+.health-log-details-card strong {
+  display: block;
+  color: #2d3748;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.health-log-details-card span {
+  color: #4a5568;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+/* Loading and Error States */
+.health-log-details-root > p {
+  text-align: center;
+  padding: 2rem;
+  color: #4a5568;
+  font-weight: 500;
+  font-size: 1.1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  max-width: 400px;
+}
+
+/* Action buttons container */
+.health-log-details-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Edit button styling */
+.health-log-edit-btn {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #4a90e2;
+  background: #4a90e2;
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(74, 144, 226, 0.2);
+  font-family: 'Quicksand', sans-serif;
+}
+
+.health-log-edit-btn:hover {
+  background: #357abd;
+  border-color: #357abd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+}
+
+/* Delete button styling */
+.health-log-delete-btn {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #e53e3e;
+  background: none;
+  color: #e53e3e;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(229, 62, 62, 0.1);
+  font-family: 'Quicksand', sans-serif;
+}
+
+.health-log-delete-btn:hover {
+  background: #e53e3e;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(229, 62, 62, 0.3);
+}
+
+/* Responsive adjustments for action buttons */
+@media (max-width: 768px) {
+  .health-log-details-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .health-log-edit-btn,
+  .health-log-delete-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .health-log-details-actions {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .health-log-edit-btn,
+  .health-log-delete-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
