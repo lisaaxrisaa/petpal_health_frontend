@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useCreateHealthLogMutation } from '../src/features/healthLogs/healthLogsSlice';
 import { useGetUserPetsQuery } from '../src/features/pets/petsSlice';
 import '../css/HealthLogForm.css';
@@ -7,12 +8,20 @@ export default function HealthLogForm({
   defaultPetId = null,
   defaultPetName = '',
 }) {
+  const navigate = useNavigate();
+  const { petId } = useParams();
   const { data: pets = [] } = useGetUserPetsQuery();
   const [createHealthLog, { isLoading }] = useCreateHealthLogMutation();
+  
+  // Get pet details from URL params if available
+  const urlPetId = petId ? Number(petId) : null;
+  const pet = pets.find(p => p.id === urlPetId);
+  const finalPetId = defaultPetId || urlPetId;
+  const finalPetName = defaultPetName || pet?.name || '';
 
   const [formData, setFormData] = useState({
-    petId: defaultPetId || '',
-    petName: defaultPetName || '',
+    petId: finalPetId || '',
+    petName: finalPetName || '',
     date: '',
     notes: '',
     condition: '',
@@ -46,16 +55,13 @@ export default function HealthLogForm({
     try {
       await createHealthLog(formData).unwrap();
       alert('Health log created!');
-
-      setFormData({
-        petId: defaultPetId || '',
-        petName: defaultPetName || '',
-        date: '',
-        notes: '',
-        condition: '',
-        medicationsGiven: '',
-        vetVisit: false,
-      });
+      
+      // Navigate back to pet details page
+      if (finalPetId) {
+        navigate(`/pets/${finalPetId}`);
+      } else {
+        navigate('/');
+      }
     } catch (err) {
       console.error('Error creating health log:', err);
     }
@@ -63,12 +69,14 @@ export default function HealthLogForm({
 
   return (
     <>
-      <div className="health-log-form-container">
+      <div className="health-log-form-page">
+        <div className="health-log-form-container">
+        
         <form onSubmit={handleSubmit} className="health-log-form">
           <h2 className="health-log-form-title">Add Health Log</h2>
 
           <div className="health-log-form-grid">
-            {!defaultPetId ? (
+            {!finalPetId ? (
               <div className="health-log-form-field">
                 <label className="health-log-form-label">
                   Pet *
@@ -177,6 +185,13 @@ export default function HealthLogForm({
 
           <div className="health-log-form-actions">
             <button
+              type="button"
+              onClick={() => finalPetId ? navigate(`/pets/${finalPetId}`) : navigate('/')}
+              className="health-log-cancel-btn"
+            >
+              Cancel
+            </button>
+            <button
               type="submit"
               disabled={isLoading}
               className={`health-log-submit-btn ${
@@ -187,6 +202,7 @@ export default function HealthLogForm({
             </button>
           </div>
         </form>
+        </div>
       </div>
     </>
   );

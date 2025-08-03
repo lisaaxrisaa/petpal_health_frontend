@@ -33,6 +33,7 @@
   font-family: 'Quicksand', sans-serif;
 }
 
+
 .health-log-form {
   background: white;
   padding: 2rem;
@@ -221,8 +222,29 @@
 
 .health-log-form-actions {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  gap: 1rem;
   margin-top: 1rem;
+}
+
+.health-log-cancel-btn {
+  padding: 0.9rem 2rem;
+  border: 2px solid #64748b;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: none;
+  color: #64748b;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.health-log-cancel-btn:hover {
+  background-color: #64748b;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(100, 116, 139, 0.3);
 }
 
 .health-log-submit-btn {
@@ -295,6 +317,12 @@
     font-size: 1.6rem;
   }
 
+  .health-log-form-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .health-log-cancel-btn,
   .health-log-submit-btn {
     width: 100%;
     padding: 1rem;

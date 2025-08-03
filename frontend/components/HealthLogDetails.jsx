@@ -17,8 +17,11 @@ export default function HealthLogDetails() {
   return (
     <>
       <div className="health-log-details-root">
-        <button onClick={() => navigate(-1)} className="health-log-back-btn">
-          ← Back
+        <button
+          onClick={() => navigate(`/pets/${log.petId}`)}
+          className="health-log-back-btn"
+        >
+          ← Back to Pet Details
         </button>
 
         <h2 className="health-log-details-title">Health Log Details</h2>

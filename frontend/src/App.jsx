@@ -5,9 +5,9 @@ import LoginForm from '../components/LoginForm';
 import Home from '../pages/Home';
 import RegisterForm from '../components/RegisterForm';
 import PetDetailsPage from '../components/PetDetailsPage';
-import PetHealthLogsPage from '../components/PetHealthLogsPage';
 import HealthLogDetails from '../components/HealthLogDetails';
 import EditHealthLogForm from '../components/EditHealthLogForm';
+import HealthLogForm from '../components/HealthLogForm';
 
 function App() {
   const [token, setToken] = useState(null);
@@ -46,7 +46,7 @@ function App() {
             }
           />
           <Route path="/pets/:petId" element={<PetDetailsPage />} />
-          <Route path="/pets/:petId/logs" element={<PetHealthLogsPage />} />
+          <Route path="/pets/:petId/logs/new" element={<HealthLogForm />} />
           <Route path="/logs/:logId" element={<HealthLogDetails />} />
           <Route path="/logs/:logId/edit" element={<EditHealthLogForm />} />
         </Routes>

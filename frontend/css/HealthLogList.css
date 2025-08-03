@@ -1,70 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
 
-.health-log-page-root {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 2rem;
-  background-color: #f8fafc;
-  font-family: 'Quicksand', sans-serif;
-  position: relative;
-  z-index: 1;
-}
-
-/* Reset any potential header styles */
-.health-log-page-root::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #f8fafc;
-  z-index: -1;
-}
-
-.health-log-content-container {
-  width: 100%;
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.health-log-back-btn {
-  align-self: flex-start;
-  padding: 0.8rem 1.5rem;
-  border: 2px solid #4a90e2;
-  background: none;
-  color: #4a90e2;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.health-log-back-btn:hover {
-  background: #4a90e2;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
-}
-
-.health-log-title {
-  text-align: center;
-  color: #ff7d50;
-  margin: 0 0 2rem 0;
-  font-family: 'Pacifico', cursive;
-  font-size: 2.2rem;
-  font-weight: 400;
-}
-
 .health-log-list {
-  width: 100%;
-  max-width: 700px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -142,33 +78,12 @@
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .health-log-page-root {
-    padding: 1.5rem;
-  }
-
-  .health-log-title {
-    font-size: 1.9rem;
-  }
-
-  .health-log-back-btn {
-    padding: 0.7rem 1.3rem;
-    font-size: 0.85rem;
-  }
-
   .health-log-card {
     padding: 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .health-log-page-root {
-    padding: 1rem;
-  }
-
-  .health-log-title {
-    font-size: 1.6rem;
-  }
-
   .health-log-header {
     flex-direction: column;
     align-items: flex-start;
@@ -181,10 +96,5 @@
 
   .health-log-card {
     padding: 1rem;
-  }
-
-  .health-log-back-btn {
-    width: 100%;
-    text-align: center;
   }
 }
