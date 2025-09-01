@@ -1,16 +1,28 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { useGetUserPetsQuery } from '../src/features/pets/petsSlice';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import HealthLogList from './HealthLogList';
+import MedicationList from './MedicationList';
+import InsuranceList from './InsuranceList';
+import FoodList from './FoodList';
+import VaccineList from './VaccineList';
 import PetProfileCard from './PetProfileCard';
 import '../css/PetDetailsPage.css';
 
 export default function PetDetailsPage() {
   const { petId } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { data: pets = [] } = useGetUserPetsQuery();
   const pet = pets.find((p) => p.id === Number(petId));
   const [activeTab, setActiveTab] = useState('healthLogs');
+
+  useEffect(() => {
+    const tab = searchParams.get('tab');
+    if (tab && ['healthLogs', 'medications', 'insurance', 'food', 'vaccines', 'general'].includes(tab)) {
+      setActiveTab(tab);
+    }
+  }, [searchParams]);
 
   if (!pet) return <p>Pet not found</p>;
 
@@ -18,6 +30,8 @@ export default function PetDetailsPage() {
     { id: 'healthLogs', label: 'Health Logs' },
     { id: 'medications', label: 'Medications' },
     { id: 'insurance', label: 'Insurance' },
+    { id: 'food', label: 'Food Diary' },
+    { id: 'vaccines', label: 'Vaccines' },
     { id: 'general', label: 'General Info' }
   ];
 
@@ -46,23 +60,51 @@ export default function PetDetailsPage() {
           <div className="petdetails-tab-content">
             <div className="petdetails-tab-header">
               <h2>Medications</h2>
-              <button className="petdetails-add-btn">
+              <button
+                onClick={() => navigate(`/pets/${petId}/medications/new`)}
+                className="petdetails-add-btn"
+              >
                 + Add Medication
               </button>
             </div>
-            <p>Medications feature coming soon...</p>
+            
+            <div className="petdetails-list-section">
+              <MedicationList petId={pet.id} />
+            </div>
           </div>
         );
       case 'insurance':
         return (
           <div className="petdetails-tab-content">
+            <div className="petdetails-list-section">
+              <InsuranceList petId={pet.id} />
+            </div>
+          </div>
+        );
+      case 'food':
+        return (
+          <div className="petdetails-tab-content">
+            <div className="petdetails-list-section">
+              <FoodList petId={pet.id} />
+            </div>
+          </div>
+        );
+      case 'vaccines':
+        return (
+          <div className="petdetails-tab-content">
             <div className="petdetails-tab-header">
-              <h2>Insurance</h2>
-              <button className="petdetails-add-btn">
-                + Add Insurance
+              <h2>Vaccines</h2>
+              <button
+                onClick={() => navigate(`/pets/${petId}/vaccines/new`)}
+                className="petdetails-add-btn"
+              >
+                + Add Vaccine
               </button>
             </div>
-            <p>Insurance feature coming soon...</p>
+            
+            <div className="petdetails-list-section">
+              <VaccineList petId={pet.id} />
+            </div>
           </div>
         );
       case 'general':
@@ -70,6 +112,12 @@ export default function PetDetailsPage() {
           <div className="petdetails-tab-content">
             <div className="petdetails-tab-header">
               <h2>General Information</h2>
+              <button
+                onClick={() => navigate(`/pets/${petId}/edit`)}
+                className="petdetails-add-btn"
+              >
+                Edit Pet Info
+              </button>
             </div>
             <PetProfileCard pet={pet} />
           </div>

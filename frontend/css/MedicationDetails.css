@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
+
+.medication-details-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f8fafc;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.medication-back-btn {
+  align-self: flex-start;
+  background: none;
+  color: #8b5cf6;
+  border: 2px solid #8b5cf6;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 2rem;
+}
+
+.medication-back-btn:hover {
+  background-color: #8b5cf6;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(139, 92, 246, 0.3);
+}
+
+.medication-back-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(139, 92, 246, 0.2);
+}
+
+.medication-details-title {
+  text-align: center;
+  color: #8b5cf6;
+  margin: 0 0 2rem 0;
+  font-family: 'Pacifico', cursive;
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+
+.medication-details-card {
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  color: #2d3748;
+}
+
+.medication-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f1f5f9;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.medication-name-section {
+  display: flex;
+  align-items: center;
+}
+
+.medication-name-section h3 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.medication-date {
+  color: #64748b;
+  font-weight: 600;
+  font-size: 1rem;
+  background: #f1f5f9;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+}
+
+.medication-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.medication-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid #8b5cf6;
+}
+
+.medication-detail-full {
+  grid-column: 1 / -1;
+}
+
+.medication-detail-item strong {
+  color: #374151;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.medication-detail-item span {
+  color: #1e293b;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.medication-details-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.medication-edit-btn {
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: 'Quicksand', sans-serif;
+}
+
+.medication-edit-btn:hover {
+  background-color: #7c3aed;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(139, 92, 246, 0.3);
+}
+
+.medication-delete-btn {
+  background: none;
+  color: #dc2626;
+  border: 2px solid #dc2626;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.medication-delete-btn:hover {
+  background-color: #dc2626;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .medication-details-root {
+    padding: 1.5rem;
+  }
+
+  .medication-details-card {
+    padding: 1.5rem;
+  }
+
+  .medication-details-title {
+    font-size: 1.9rem;
+  }
+
+  .medication-details-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .medication-details-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .medication-date {
+    align-self: flex-end;
+  }
+
+  .medication-details-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .medication-edit-btn,
+  .medication-delete-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .medication-details-root {
+    padding: 1rem;
+  }
+
+  .medication-details-card {
+    padding: 1rem;
+  }
+
+  .medication-details-title {
+    font-size: 1.6rem;
+  }
+
+  .medication-name-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .medication-back-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

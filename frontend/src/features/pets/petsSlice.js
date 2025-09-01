@@ -14,8 +14,16 @@ export const petsSlice = api.injectEndpoints({
       query: () => '/pets',
       providesTags: ['Pets'],
     }),
+    updatePet: builder.mutation({
+      query: ({ id, ...updatedPet }) => ({
+        url: `/pets/${id}`,
+        method: 'PUT',
+        body: updatedPet,
+      }),
+      invalidatesTags: ['Pets'],
+    }),
   }),
   overrideExisting: false,
 });
 
-export const { useCreatePetMutation, useGetUserPetsQuery } = petsSlice;
+export const { useCreatePetMutation, useGetUserPetsQuery, useUpdatePetMutation } = petsSlice;

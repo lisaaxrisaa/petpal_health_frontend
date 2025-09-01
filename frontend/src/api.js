@@ -10,6 +10,6 @@ export const api = createApi({
       return headers;
     },
   }),
-  tagTypes: ['HealthLogs'],
+  tagTypes: ['HealthLogs', 'Medications'],
   endpoints: () => ({}),
 });

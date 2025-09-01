@@ -8,6 +8,15 @@ import PetDetailsPage from '../components/PetDetailsPage';
 import HealthLogDetails from '../components/HealthLogDetails';
 import EditHealthLogForm from '../components/EditHealthLogForm';
 import HealthLogForm from '../components/HealthLogForm';
+import PetEditForm from '../components/PetEditForm';
+import MedicationForm from '../components/MedicationForm';
+import MedicationDetails from '../components/MedicationDetails';
+import InsuranceForm from '../components/InsuranceForm';
+import InsuranceDetails from '../components/InsuranceDetails';
+import FoodForm from '../components/FoodForm';
+import FoodDetails from '../components/FoodDetails';
+import VaccineForm from '../components/VaccineForm';
+import VaccineDetails from '../components/VaccineDetails';
 
 function App() {
   const [token, setToken] = useState(null);
@@ -46,9 +55,21 @@ function App() {
             }
           />
           <Route path="/pets/:petId" element={<PetDetailsPage />} />
+          <Route path="/pets/:petId/edit" element={<PetEditForm />} />
           <Route path="/pets/:petId/logs/new" element={<HealthLogForm />} />
+          <Route path="/pets/:petId/medications/new" element={<MedicationForm />} />
+          <Route path="/pets/:petId/insurance/new" element={<InsuranceForm />} />
+          <Route path="/pets/:petId/insurance/:insuranceId/edit" element={<InsuranceForm isEdit={true} />} />
+          <Route path="/pets/:petId/food/new" element={<FoodForm />} />
+          <Route path="/pets/:petId/food/:foodEntryId/edit" element={<FoodForm isEdit={true} />} />
+          <Route path="/pets/:petId/vaccines/new" element={<VaccineForm />} />
+          <Route path="/pets/:petId/vaccines/:vaccineId/edit" element={<VaccineForm isEdit={true} />} />
           <Route path="/logs/:logId" element={<HealthLogDetails />} />
           <Route path="/logs/:logId/edit" element={<EditHealthLogForm />} />
+          <Route path="/medications/:medicationId" element={<MedicationDetails />} />
+          <Route path="/pets/:petId/insurance/:insuranceId" element={<InsuranceDetails />} />
+          <Route path="/pets/:petId/food/:foodEntryId" element={<FoodDetails />} />
+          <Route path="/pets/:petId/vaccines/:vaccineId" element={<VaccineDetails />} />
         </Routes>
       </Router>
     );

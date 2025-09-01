@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
+
+.insurance-form-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f8fafc;
+  font-family: 'Quicksand', sans-serif;
+  color-scheme: light;
+}
+
+.insurance-form-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.insurance-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  color: #2d3748;
+}
+
+.insurance-form * {
+  color: #2d3748;
+}
+
+.insurance-form label {
+  color: #374151 !important;
+}
+
+.insurance-form-title {
+  text-align: center;
+  color: #8b5cf6;
+  margin: 0 0 2rem 0;
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.insurance-form-section {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.insurance-form-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.insurance-form-section h3 {
+  color: #4a5568;
+  margin: 0 0 1.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.insurance-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  align-items: start;
+}
+
+.insurance-form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.insurance-form-field-full {
+  grid-column: 1 / -1;
+}
+
+.insurance-form-label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  display: block;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.insurance-form-input,
+.insurance-form-select,
+.insurance-form-textarea {
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Quicksand', sans-serif;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+}
+
+.insurance-form-input:focus,
+.insurance-form-select:focus,
+.insurance-form-textarea:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.insurance-form-checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.insurance-form-checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background-color: #f7fafc;
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.insurance-form-checkbox-group:hover {
+  border-color: #cbd5e0;
+}
+
+.insurance-form-checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  background-color: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.insurance-form-checkbox-group input[type="checkbox"]:checked {
+  background-color: white;
+  border-color: #8b5cf6;
+}
+
+.insurance-form-checkbox-group input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #8b5cf6;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.insurance-form-checkbox-group label {
+  margin: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.insurance-form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.insurance-form-actions button {
+  min-width: 140px;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.insurance-form-actions .btn.secondary {
+  background-color: #f7fafc;
+  color: #4a5568;
+  border: 2px solid #e2e8f0;
+}
+
+.insurance-form-actions .btn.secondary:hover {
+  background-color: #edf2f7;
+  border-color: #cbd5e0;
+}
+
+.insurance-form-actions .btn.primary {
+  background-color: #8b5cf6;
+  color: white;
+  border: 2px solid #8b5cf6;
+}
+
+.insurance-form-actions .btn.primary:hover {
+  background-color: #7c3aed;
+  border-color: #7c3aed;
+}
+
+.insurance-form-actions .btn.primary:disabled {
+  background-color: #a0aec0;
+  border-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .insurance-form-page {
+    padding: 1rem;
+  }
+  
+  .insurance-form {
+    padding: 1.5rem;
+  }
+  
+  .insurance-form-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .insurance-form-checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .insurance-form-actions {
+    flex-direction: column;
+  }
+  
+  .insurance-form-actions button {
+    width: 100%;
+  }
+}

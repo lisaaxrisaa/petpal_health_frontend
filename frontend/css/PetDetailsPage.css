@@ -74,6 +74,17 @@
   transition: all 0.2s ease;
   border-right: 3px solid transparent;
   position: relative;
+  outline: none;
+}
+
+.petdetails-tab:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.petdetails-tab:focus-visible {
+  outline: none;
+  box-shadow: none;
 }
 
 .petdetails-tab:hover {

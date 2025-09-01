@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap');
+
+.pet-edit-form-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f8fafc;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.pet-edit-form-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.pet-edit-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  color: #2d3748;
+}
+
+.pet-edit-form-title {
+  text-align: center;
+  color: #ff7d50;
+  margin: 0 0 2rem 0;
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.pet-edit-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: start;
+}
+
+.pet-edit-form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.pet-edit-form-field-full {
+  grid-column: 1 / -1;
+}
+
+.pet-edit-form-label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  display: block;
+}
+
+.pet-edit-form-input,
+.pet-edit-form-textarea {
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: #374151;
+  background: white;
+  transition: all 0.2s ease;
+  font-family: 'Quicksand', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pet-edit-form-input:focus,
+.pet-edit-form-textarea:focus {
+  outline: none;
+  border-color: #ff7d50;
+  box-shadow: 0 0 0 3px rgba(255, 125, 80, 0.1);
+}
+
+.pet-edit-form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.pet-edit-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.pet-edit-cancel-btn {
+  padding: 0.9rem 2rem;
+  border: 2px solid #64748b;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: none;
+  color: #64748b;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.pet-edit-cancel-btn:hover {
+  background-color: #64748b;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(100, 116, 139, 0.3);
+}
+
+.pet-edit-submit-btn {
+  padding: 0.9rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #ff7d50;
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.pet-edit-submit-btn:hover:not(:disabled) {
+  background-color: #ff6b3a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 125, 80, 0.3);
+}
+
+.pet-edit-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pet-edit-submit-btn-loading {
+  position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pet-edit-form-page {
+    padding: 1.5rem;
+  }
+
+  .pet-edit-form {
+    padding: 1.5rem;
+  }
+
+  .pet-edit-form-title {
+    font-size: 1.8rem;
+  }
+
+  .pet-edit-form-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pet-edit-form-page {
+    padding: 1rem;
+  }
+
+  .pet-edit-form {
+    padding: 1rem;
+  }
+
+  .pet-edit-form-title {
+    font-size: 1.6rem;
+  }
+
+  .pet-edit-form-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .pet-edit-cancel-btn,
+  .pet-edit-submit-btn {
+    width: 100%;
+    padding: 1rem;
+  }
+}

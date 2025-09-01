@@ -27,6 +27,7 @@ The app uses RTK Query with a centralized API slice pattern:
 - `src/features/` - Domain-specific API slices that inject endpoints into the base API:
   - `pets/petsSlice.js` - Pet CRUD operations
   - `healthLogs/healthLogsSlice.js` - Health log management
+  - `medications/medicationsSlice.js` - Medication management (CRUD operations)
   - `auth/authSlice.js` - Authentication endpoints
   - `users/usersSlice.js` - User management
 
@@ -37,9 +38,12 @@ The app uses RTK Query with a centralized API slice pattern:
 3. **Routing Structure**:
    - `/` - Home with pet list and health log management
    - `/pets/:petId` - Individual pet details with tabbed interface (Health Logs, Medications, Insurance, General Info)
+   - `/pets/:petId/edit` - Edit pet general information (name, species, breed, age, weight, notes)
    - `/pets/:petId/logs/new` - Create new health log for specific pet
+   - `/pets/:petId/medications/new` - Create new medication record for specific pet
    - `/logs/:logId` - Health log detail view
    - `/logs/:logId/edit` - Health log editing
+   - `/medications/:medicationId` - Medication detail view with edit/delete options
 
 ### Component Organization
 
